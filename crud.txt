@@ -1,0 +1,31 @@
+/*
+DROP TABLE receita ;
+DROP TABLE conta ;
+DROP TABLE despesa;
+*/
+
+CREATE TABLE receita (
+    idconta           integer NOT NULL,
+    tiporeceita       varchar(30) NOT NULL,
+    datarecebimento   date NOT NULL,
+    datarecebesperado date NOT NULL,
+    descreceita       varchar(30) NOT NULL,
+    PRIMARY KEY (idconta, tiporeceita, datarecebimento)
+);
+
+CREATE TABLE conta (
+    idconta           integer NOT NULL,
+    tipoconta         varchar(20) NOT NULL,
+    instfinanceira    varchar(20) NOT NULL,
+    vlrsaldo          decimal(8,2) NOT NULL,
+    PRIMARY KEY (idconta)
+);
+
+CREATE TABLE despesa (
+    idconta           integer NOT NULL,
+    datapagto         date NOT NULL,
+    datapagtoesperado date NOT NULL,
+    tipodespesa       varchar(30) NOT NULL,
+    vlrdespesa        decimal(8,2) NOT NULL,
+    PRIMARY KEY (idconta, datapagto, tipodespesa)
+);
